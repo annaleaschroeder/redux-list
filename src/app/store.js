@@ -1,8 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { createStore } from "redux";
+import rootReducer from "./reducer";
 
-export default configureStore({
-  reducer: {
-    counter: counterReducer,
-  },
-});
+const store = createStore(rootReducer);
+
+fetch("https://cat-fact.herokuapp.com/facts/random?amount=20")
+  .then((res) => res.json())
+  .then((data) => {
+    store.dispatch({
+      type: "catfacts/loadedCatFacts",
+      catfacts: data,
+    });
+  });
+
+export default store;
