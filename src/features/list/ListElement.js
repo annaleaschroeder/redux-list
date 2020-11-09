@@ -1,5 +1,11 @@
 import React from "react";
+import styled from "styled-components/macro";
 
 export default function ListElement({ value }) {
-  return <li>{value}</li>;
+  return <ListItem>{value}</ListItem>;
 }
+
+const ListItem = styled.li`
+  list-style: none;
+  margin: 12px;
+`;

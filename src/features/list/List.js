@@ -10,7 +10,7 @@ export function List({ catfacts }) {
           <ListElement key={index} value={text} />
         ))}
       </ul>
-    </div>
+    </div> 
   );
 }
 
